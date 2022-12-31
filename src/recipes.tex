@@ -1,7 +1,9 @@
 \documentclass[a4paper]{book}
 
+\usepackage{color}
 \usepackage{enumitem}
 \usepackage[inner=4cm,outer=2cm]{geometry}
+\usepackage{hyperref}
 \usepackage{multicol}
 \usepackage{siunitx}
 \usepackage{titlesec}
@@ -14,23 +16,15 @@
 \input{\DefsPath/section-titles.tex}
 
 \setlist[itemize]{noitemsep}
+\setcounter{tocdepth}{1}
+\hypersetup{colorlinks=false, linktoc=all}
 
 \title{Cuisine a la Richmond}
 \author{Ashley Richmond}
 
 \begin{document}
 \maketitle
-
-\chapter{Notes}
-  \clearpage
-
-  \section{To Do}
-    \begin{enumerate}
-      \item Table of contents
-      \item Styling
-      \item Images
-      \item Index
-    \end{enumerate}
+\tableofcontents
 
 % chapters:
 %\input{./recipes/basics/.index.tex}
