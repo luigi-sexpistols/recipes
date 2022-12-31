@@ -1,0 +1,38 @@
+\documentclass[a4paper]{book}
+
+\usepackage{enumitem}
+\usepackage[inner=4cm,outer=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{titlesec}
+\usepackage{xfrac}
+
+\input{./definitions/section-titles.tex}
+
+\setlist[itemize]{noitemsep}
+
+\title{Cuisine a la Richmond}
+\author{Ashley Richmond}
+
+\begin{document}
+\maketitle
+
+\chapter{Notes}
+  \clearpage
+
+  \section{To Do}
+    \begin{enumerate}
+      \item Table of contents
+      \item Styling
+      \item Images
+      \item Index
+    \end{enumerate}
+
+% chapters:
+%\input{./recipes/basics/.index.tex}
+\input{./recipes/breakfast/_index.tex}
+\input{./recipes/dinner/_index.tex}
+\input{./recipes/sides/_index.tex}
+\input{./recipes/dessert/_index.tex}
+
+\end{document}
