@@ -7,7 +7,11 @@
 \usepackage{titlesec}
 \usepackage{xfrac}
 
-\input{./definitions/section-titles.tex}
+\newcommand*{\ProjectPath}{./src}%
+\newcommand*{\RecipesPath}{\ProjectPath/recipes}%
+\newcommand*{\DefsPath}{\ProjectPath/definitions}%
+
+\input{\DefsPath/section-titles.tex}
 
 \setlist[itemize]{noitemsep}
 
@@ -30,9 +34,9 @@
 
 % chapters:
 %\input{./recipes/basics/.index.tex}
-\input{./recipes/breakfast/_index.tex}
-\input{./recipes/dinner/_index.tex}
-\input{./recipes/sides/_index.tex}
-\input{./recipes/dessert/_index.tex}
+\input{\RecipesPath/breakfast/_index.tex}
+\input{\RecipesPath/dinner/_index.tex}
+\input{\RecipesPath/sides/_index.tex}
+\input{\RecipesPath/dessert/_index.tex}
 
 \end{document}
