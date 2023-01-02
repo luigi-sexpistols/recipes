@@ -4,7 +4,6 @@
 
 In no particular order:
 
-* Automatically generated index
 * Recipe photos
 * Styling
 * Decide on a layout for all recipes (and update older recipes to match)
