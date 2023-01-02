@@ -5,8 +5,7 @@
 In no particular order:
 
 * Recipe photos
-* Styling
-* Decide on a layout for all recipes (and update older recipes to match)
+* Layout and styling
 * [Automatic discovery of included files (chapter indices, recipes, etc)](https://tex.stackexchange.com/questions/200937/how-to-automatically-include-several-text-documents-into-a-latex-document)
 
 ## Compiling
