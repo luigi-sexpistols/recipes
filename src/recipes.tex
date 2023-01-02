@@ -4,7 +4,9 @@
 \usepackage{enumitem}
 \usepackage[inner=4cm,outer=2cm]{geometry}
 \usepackage{hyperref}
+\usepackage{imakeidx}
 \usepackage{multicol}
+\usepackage{parskip}
 \usepackage{siunitx}
 \usepackage{titlesec}
 \usepackage{xfrac}
@@ -12,6 +14,8 @@
 \newcommand*{\ProjectPath}{./src}%
 \newcommand*{\RecipesPath}{\ProjectPath/recipes}%
 \newcommand*{\DefsPath}{\ProjectPath/definitions}%
+
+\newcommand*{\celsius}{$^{\circ}$C }%
 
 \input{\DefsPath/section-titles.tex}
 
@@ -21,6 +25,8 @@
 
 \title{Cuisine a la Richmond}
 \author{Ashley Richmond}
+
+\makeindex
 
 \begin{document}
 \maketitle
@@ -32,5 +38,8 @@
 \input{\RecipesPath/dinner/_index.tex}
 \input{\RecipesPath/sides/_index.tex}
 \input{\RecipesPath/dessert/_index.tex}
+\input{\RecipesPath/drinks/_index.tex}
+
+\printindex
 
 \end{document}
