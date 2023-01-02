@@ -13,12 +13,12 @@
 
 \newcommand*{\ProjectPath}{./src}%
 \newcommand*{\RecipesPath}{\ProjectPath/recipes}%
-\newcommand*{\DefsPath}{\ProjectPath/definitions}%
 
 \newcommand*{\celsius}[1]{#1$^{\circ}$C }%
 
-\input{\DefsPath/section-titles.tex}
-
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{}{0pt}{}
 \setlist[itemize]{noitemsep}
 \setcounter{tocdepth}{1}
 \hypersetup{colorlinks=false, linktoc=all}
@@ -29,6 +29,7 @@
 \makeindex
 
 \begin{document}
+
 \maketitle
 \tableofcontents
 
