@@ -8,6 +8,13 @@ In no particular order:
 * Layout and styling
 * [Automatic discovery of included files (chapter indices, recipes, etc)](https://tex.stackexchange.com/questions/200937/how-to-automatically-include-several-text-documents-into-a-latex-document)
 
+## Recipes to Add
+
+* Filipino turmeric-scented pork stew
+* Fake curry
+* Chicken with almonds
+* Lasagne
+
 ## Compiling
 
 Using Docker:
