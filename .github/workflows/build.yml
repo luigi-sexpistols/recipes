@@ -27,4 +27,4 @@ jobs:
         if: failure()
         uses: docker://miktex/miktex:latest
         with:
-          args: cat /miktex/.miktex/**/pdflatex.log
+          args: cat /miktex/.miktex/texmfs/data/miktex/log/pdflatex.log
