@@ -16,8 +16,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-      - name: Build PDF
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create PDF
         uses: docker://miktex/miktex:latest
         with: 
           args: pdflatex src/recipes.tex
