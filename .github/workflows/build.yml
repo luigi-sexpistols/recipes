@@ -15,16 +15,10 @@ jobs:
       - name: Create PDF
         uses: docker://miktex/miktex:latest
         with: 
-          args: pdflatex src/recipes.tex
+          args: pdflatex src/recipes.tex || cat /miktex/.miktex/texmfs/data/miktex/log/pdflatex.log
       
       - name: Create artifact
         uses: actions/upload-artifact@v3
         with:
           name: recipes-pdf-output
           path: ./recipes.pdf
-      
-      - name: On fail...
-        if: failure()
-        uses: docker://miktex/miktex:latest
-        with:
-          args: cat /miktex/.miktex/texmfs/data/miktex/log/pdflatex.log
