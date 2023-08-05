@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build PDF
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container:
+      image: miktex/miktex:latest
+      volumes:
+        - .:/miktex/work
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build PDF
+        uses: docker://miktex/miktex:latest
+        with: 
+          args: pdflatex src/recipes.tex
+      # - name: Create release
