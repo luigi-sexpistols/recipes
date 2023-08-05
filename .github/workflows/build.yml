@@ -15,7 +15,7 @@ jobs:
       - name: Create PDF
         uses: docker://miktex/miktex:latest
         with: 
-          args: pdflatex src/recipes.tex || cat /miktex/.miktex/texmfs/data/miktex/log/pdflatex.log
+          args: pdflatex src/recipes.tex
       
       - name: Create artifact
         uses: actions/upload-artifact@v3
