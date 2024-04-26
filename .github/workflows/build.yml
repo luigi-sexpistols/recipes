@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Create PDF
-        uses: docker://miktex/miktex:latest
-        with: 
-          args: pdflatex src/recipes.tex -no-shell-escape
+        uses: xu-cheng/latex-action@3.2.0
+        with:
+          root_file: src/recipes.tex
       
       - name: Create artifact
         uses: actions/upload-artifact@v3
