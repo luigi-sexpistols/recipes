@@ -24,6 +24,7 @@ jobs:
           run: |
             miktexsetup finish
             pdflatex src/recipes.tex -no-shell-escape
+            cat /root/.miktex/texmfs/data/miktex/log/pdflatex.log
       
       - name: Create release
         uses: softprops/action-gh-release@v2
