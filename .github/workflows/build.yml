@@ -15,11 +15,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Create PDF
-        uses: xu-cheng/latex-action@3.2.0
+        uses: addnab/docker-run-action@v3
         with:
-          root_file: src/recipes.tex
+          image: miktex/miktex:latest
+          options: -v ${{ github.workspace }}:/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
+          run: pdflatex src/recipes.tex -no-shell-escape
       
       - name: Create release
         uses: softprops/action-gh-release@v2
