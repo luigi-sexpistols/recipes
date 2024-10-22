@@ -6,7 +6,6 @@ In no particular order:
 
 * Recipe photos
 * Layout and styling
-* [Automatic discovery of included files (chapter indices, recipes, etc)](https://tex.stackexchange.com/questions/200937/how-to-automatically-include-several-text-documents-into-a-latex-document)
 
 ## Recipes to Add
 
@@ -23,16 +22,17 @@ Using Docker:
 docker run -it --rm \
     -v miktex:/miktex/.miktex \
     -v `pwd`:/miktex/work \
-    miktex/miktex pdflatex src/recipes.tex
+    --workdir /miktex/work \
+    -e "TEXINPUTS=/miktex/work/src:${TEXINPUTS}:" \
+    miktex/miktex:latest pdflatex src/recipes.tex -no-shell-escape
 ```
-
-## 
 
 ## Adding New Recipes
 
 Add a new file into the relevant chapter folder (e.g. `src/recipes/dinner/steak.tex`) using the following template:
 
 ```latex
+\clearpage
 \section{Recipe Name}
 
 \index{author!John Doe}
@@ -57,7 +57,7 @@ Ingredient notes go here
 \subsection{Method}
 
 \begin{enumerate}
-    \item Do a thing.
+    \item Do a thing at \celsius{180}.
     \item Do another thing.
 \end{enumerate}
 ```

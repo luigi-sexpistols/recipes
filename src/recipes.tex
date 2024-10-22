@@ -10,16 +10,9 @@
 \usepackage{siunitx}
 \usepackage{titlesec}
 \usepackage{xfrac}
-
-\newcommand*{\ProjectPath}{./src}%
-\newcommand*{\RecipesPath}{\ProjectPath/recipes}%
+\usepackage{subfiles} % should be last
 
 \newcommand*{\celsius}[1]{#1$^{\circ}$C }%
-
-% todo - load recipe files into automatically
-% \newcommand*{\recipeindex}[2]{%
-% \foreach \x [count=\i] in {#2} { \clearpage \input{{#1}/\x} }%
-% }
 
 \titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{}{0pt}{}
@@ -39,13 +32,12 @@
 \tableofcontents
 
 % chapters:
-%\input{./recipes/basics/.index.tex}
-\input{\RecipesPath/breakfast/_index.tex}
-\input{\RecipesPath/lunch/_index.tex}
-\input{\RecipesPath/dinner/_index.tex}
-\input{\RecipesPath/sides/_index.tex}
-\input{\RecipesPath/dessert/_index.tex}
-\input{\RecipesPath/drinks/_index.tex}
+\subfile{recipes/breakfast/_index}
+\subfile{recipes/lunch/_index}
+\subfile{recipes/dinner/_index}
+\subfile{recipes/sides/_index}
+\subfile{recipes/dessert/_index}
+\subfile{recipes/drinks/_index}
 
 \printindex
 
