@@ -29,7 +29,16 @@ docker run -it --rm \
 
 ## Adding New Recipes
 
-Add a new file into the relevant chapter folder (e.g. `src/recipes/dinner/steak.tex`) using the following template:
+Add a new file into the relevant chapter folder (e.g. `src/recipes/dinner/steak.tex`) and add a to it file into its 
+folder's `_index.tex`.
+
+### Index Reference
+
+```latex
+\subfile{steak}
+```
+
+### New Recipe Template
 
 ```latex
 \clearpage
@@ -61,6 +70,4 @@ Ingredient notes go here
     \item Do another thing.
 \end{enumerate}
 ```
-
-Add a reference to this file into `src/recipes/dinner/_index.tex`.
 
