@@ -16,11 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug
+        run: echo pwd
+
       - name: Create PDF
         uses: addnab/docker-run-action@v3
         with:
           image: miktex/miktex:latest
-          options: -v ${{ github.workspace }}:/miktex/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
+          options: -v `pwd`:/miktex/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
           run: |
             miktexsetup finish
             pdflatex src/recipes.tex -no-shell-escape
