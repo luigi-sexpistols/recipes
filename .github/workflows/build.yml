@@ -20,7 +20,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: miktex/miktex:latest
-          options: -v ${{ github.workspace }}:/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
+          options: -v ${{ github.workspace }}:/miktex/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
           run: pdflatex src/recipes.tex -no-shell-escape
       
       - name: Create release
