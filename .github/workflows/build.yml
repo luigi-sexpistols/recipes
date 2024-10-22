@@ -21,7 +21,9 @@ jobs:
         with:
           image: miktex/miktex:latest
           options: -v ${{ github.workspace }}:/miktex/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
-          run: pdflatex src/recipes.tex -no-shell-escape
+          run: |
+            miktexsetup finish
+            pdflatex src/recipes.tex -no-shell-escape
       
       - name: Create release
         uses: softprops/action-gh-release@v2
