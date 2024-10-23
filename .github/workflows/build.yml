@@ -17,15 +17,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create PDF
-        uses: addnab/docker-run-action@v3
+        uses: xu-cheng/latex-action@3.2.0
         with:
-          image: miktex/miktex:latest
-          options: -v ${{ github.workspace }}:/miktex/work -e "TEXINPUTS=/work/src:${TEXINPUTS}:"
-          run: |
-            miktexsetup finish
-            initexmf --set-config-value [MPM]AutoInstall=1
-            pdflatex src/recipes.tex -no-shell-escape
-            cat /root/.miktex/texmfs/data/miktex/log/pdflatex.log
+          root_file: src/recipes.tex
       
       - name: Create release
         uses: softprops/action-gh-release@v2
