@@ -16,16 +16,15 @@ In no particular order:
 
 ## Compiling
 
-Using Docker:
+Build the PDF locally with Docker Compose:
 
 ```sh
-docker run -it --rm \
-    -v miktex:/miktex/.miktex \
-    -v `pwd`:/miktex/work \
-    --workdir /miktex/work \
-    -e "TEXINPUTS=/miktex/work/src:${TEXINPUTS}:" \
-    miktex/miktex:latest pdflatex src/recipes.tex -no-shell-escape
+HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose run --rm build
 ```
+The Docker image is pinned by digest so local and GitHub Actions builds use the
+same TeX Live environment. The generated `recipes.pdf` is written in the
+repository root.
+
 
 ## Adding New Recipes
 
