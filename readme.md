@@ -11,7 +11,6 @@ In no particular order:
 
 * Filipino turmeric-scented pork stew
 * Fake curry
-* Chicken with almonds
 * Lasagne
 
 ## Compiling
