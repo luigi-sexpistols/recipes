@@ -1,7 +1,7 @@
 name: Build
 
 permissions:
-  contents: write
+  contents: read
 
 on:
   pull_request:
@@ -13,9 +13,13 @@ jobs:
   build:
     name: Build PDF
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Build PDF
         run: HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose run --rm build
@@ -25,10 +29,22 @@ jobs:
         with:
           name: recipes-pdf
           path: recipes.pdf
+  release:
+    name: Create release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF
+        uses: actions/download-artifact@v4
+        with:
+          name: recipes-pdf
 
       - name: Create release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/') && hashFiles('recipes.pdf') != ''
+        if: hashFiles('recipes.pdf') != ''
         with:
           files: |
             recipes.pdf
