@@ -13,6 +13,15 @@
 \usepackage{subfiles} % should be last
 
 \newcommand*{\celsius}[1]{#1$^{\circ}$C}%
+\newcommand{\currentrecipename}{}
+\let\originalsection\section
+\renewcommand{\section}[1]{%
+  \gdef\currentrecipename{#1}%
+  \originalsection{#1}%
+}
+\newcommand{\indexbyrecipe}[1]{%
+  \index{#1!\currentrecipename}%
+}
 
 \titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{}{0pt}{}
